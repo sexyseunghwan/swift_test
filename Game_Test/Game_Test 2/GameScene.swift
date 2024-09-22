@@ -7,19 +7,17 @@
 
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    let motion = CMMotionManager()
     
     override func didMove(to view: SKView) {
         
-//        let bg = SKSpriteNode()
-//        bg.color = .red
-//        bg.size = CGSize(width: 100, height: 100)
-//        bg.position = CGPoint(x: 0, y: 0)
-//        addChild(bg)
-        
         //setting()
         Variables.scene = self
+        self.physicsWorld.contactDelegate = self
         setting()
         
     }
